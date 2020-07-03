@@ -597,4 +597,29 @@ class TheHelper
     {
         return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     }
+
+    /**
+     * Check whether the url file is valid
+     * 
+     * @param String $url required
+     * 
+     * @return Boolean
+     */
+    public static function check_remote_file($url)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        // don't download content
+        curl_setopt($ch, CURLOPT_NOBODY, 1);
+        curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+        if ($result !== FALSE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
