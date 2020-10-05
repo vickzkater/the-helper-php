@@ -106,7 +106,7 @@ class TheHelper
     }
 
     /**
-     * Allow all characters within "FILTER_SANITIZE_MAGIC_QUOTES"
+     * Allow all characters within "FILTER_SANITIZE_ADD_SLASHES"
      * If ($no_backslash == false) and it contains symbols: single quote (') and double quote (") 
      * Then it will add symbol backslash (\) before those symbols
      * 
@@ -120,7 +120,11 @@ class TheHelper
         if ($string == '' || !$string) {
             return null;
         }
-        $val = filter_var($string, FILTER_SANITIZE_MAGIC_QUOTES);
+        if (version_compare(PHP_VERSION, '7.4.0') >= 0) {
+            $val = filter_var($string, FILTER_SANITIZE_ADD_SLASHES);
+        } else {
+            $val = filter_var($string, FILTER_SANITIZE_MAGIC_QUOTES);
+        }
         if ($no_backslash) {
             $val = stripslashes($val);
         }
@@ -599,7 +603,7 @@ class TheHelper
     }
 
     /**
-     * Check whether the url file is valid
+     * Check whether the url file is valid 
      * 
      * @param String $url required
      * 
@@ -621,5 +625,35 @@ class TheHelper
         } else {
             return false;
         }
+    }
+
+    /**
+     * Get family name (firstname & lastname)
+     * 
+     * @param String $fullname required
+     * @param String $default_lastname optional
+     * 
+     * @return Object
+     */
+    public static function get_family_name($fullname, $default_lastname = null)
+    {
+        $arr_names = explode(' ', $fullname);
+        if (count($arr_names) == 1) {
+            $lastname = $arr_names[0];
+            if ($default_lastname) {
+                $lastname = $default_lastname;
+            }
+            $firstname = $arr_names[0];
+        } else {
+            $lastname = $arr_names[(count($arr_names) - 1)];
+            array_pop($arr_names);
+            $firstname = implode(' ', $arr_names);
+        }
+
+        $obj = new \stdClass();
+        $obj->firstname = $firstname;
+        $obj->lastname = $lastname;
+
+        return $obj;
     }
 }

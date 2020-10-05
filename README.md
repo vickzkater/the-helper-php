@@ -29,6 +29,7 @@ The Helper PHP - a lot of PHP helper functions that are ready to help in your pr
 - is_webview (Used to check whether opened via webview (Android & iOS) or not)
 - get_url (Get current full URL )
 - check_remote_file (Check whether the url file is valid)
+- get_family_name (Get family name (firstname & lastname))
 
 ## How-to-Use
 
