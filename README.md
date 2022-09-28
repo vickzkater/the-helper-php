@@ -6,17 +6,17 @@ The Helper PHP - a lot of PHP helper functions that are ready to help in your pr
 
 ## Function List
 
--  validate_input (Validating input string - prevent SQL injection & XSS)
--  validate_input_url (Validating input URL - prevent SQL injection & XSS)
--  validate_input_word (Validating input word (usually: username) - prevent SQL injection & XSS)
--  validate_input_email (Validate input email)
--  validate_input_text (Allow all characters within "FILTER_SANITIZE_MAGIC_QUOTES")
--  validate_phone (For validate phone, support generate format using phone code)
--  hashing_this (Hashing string using declared algorithm)
--  generate_parent_child_data (Generate parent-child data from array object)
--  convert_datepicker (Convert date format, usually used for bootstrap datepicker from "dd/mm/yyyy" to "yyyy-mm-dd")
--  get_end_days_of_month (Get end days of the month)
--  validate_recaptcha (Validate reCAPTCHA version 2)
+- validate_input (Validating input string - prevent SQL injection & XSS)
+- validate_input_url (Validating input URL - prevent SQL injection & XSS)
+- validate_input_word (Validating input word (usually: username) - prevent SQL injection & XSS)
+- validate_input_email (Validate input email)
+- validate_input_text (Allow all characters within "FILTER_SANITIZE_MAGIC_QUOTES")
+- validate_phone (For validate phone, support generate format using phone code)
+- hashing_this (Hashing string using declared algorithm)
+- generate_parent_child_data (Generate parent-child data from array object)
+- convert_datepicker (Convert date format, usually used for bootstrap datepicker from "dd/mm/yyyy" to "yyyy-mm-dd")
+- get_end_days_of_month (Get end days of the month)
+- validate_recaptcha (Validate reCAPTCHA version 2)
 - random_string (Generate random string)
 - generate_slug (Generate slug for SEF (Search Engine Friendly) URL)
 - set_pagination (Set pagination using total data)
@@ -30,6 +30,17 @@ The Helper PHP - a lot of PHP helper functions that are ready to help in your pr
 - get_url (Get current full URL )
 - check_remote_file (Check whether the url file is valid)
 - get_family_name (Get family name (firstname & lastname))
+- time_more (Used to format date with "*** time more" - sample: "3 hours more" & support multilanguage)
+- is_contains (For check if a string contains a specific word)
+- unique_string (Generate random unique string)
+- random_image (Generate random image)
+- generate_zero_number (Generate zero number, sample: 000025)
+- generate_token_auth (Generate token auth with custom length)
+- convert_timestamp (Convert timestamp from server timezone to specific timezone)
+- convert_timestamp_from_to (Convert timestamp from one timezone to another timezone)
+- random_code (Generate random code)
+- plural
+- convert_bytes
 
 ## How-to-Use
 
